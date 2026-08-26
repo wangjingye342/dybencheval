@@ -5,7 +5,7 @@ import glob
 
 # ================= 配置区域 =================
 
-DATA_ROOT = "D:/STUDY/2026-project1/project1/all_datasets"
+DATA_ROOT = "./data/raw_datasets"
 # 模型自主生成子情境的概率
 MODEL_DERIVED_SUB_SCENARIO = 0.4
 # 生成数量

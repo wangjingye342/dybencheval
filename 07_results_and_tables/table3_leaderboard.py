@@ -5,7 +5,7 @@ import glob
 import numpy as np
 
 # ================= 配置区域 =================
-DATA_DIR = r'D:/STUDY/2026-project1/project1/main_work/计算指标/0_final/final数据（指标2，3）/final'
+DATA_DIR = r'./external/metrics/0_final/final数据（指标2，3）/final'
 OUTPUT_DIR = 'analysis_result'
 # 输出文件名
 TABLE_OUTPUT_FILE = os.path.join(OUTPUT_DIR, 'final_formatted_leaderboard.csv')

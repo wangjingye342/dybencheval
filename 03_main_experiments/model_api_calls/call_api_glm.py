@@ -17,7 +17,7 @@ API_KEY = os.environ.get("DYBENCH_API_KEY", "")
 # 智谱 GLM-4.6 模型名 (请确认模型名称是否正确，标准名称通常为 glm-4, glm-4-plus 等)
 MODEL_NAME = "GLM-4.6"
 
-INPUT_FILE = "D:/STUDY/2026-project1/project1/main_work/通用模型实验/constructed_prompts_临时增补.jsonl"
+INPUT_FILE = "./external/model_runs/constructed_prompts_temporary_augmentation.jsonl"
 
 
 # ======================
@@ -31,7 +31,7 @@ def sanitize_model_name(name: str) -> str:
 model_tag = sanitize_model_name(MODEL_NAME)
 
 OUTPUT_FILE = Path(
-    f"D:/STUDY/2026-project1/project1/main_work/通用模型实验/results/api_results_{model_tag}.jsonl"
+    f"./external/model_runs/results/api_results_{model_tag}.jsonl"
 )
 
 # ======================

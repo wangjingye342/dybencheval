@@ -57,7 +57,7 @@ def extract_random_samples(input_dir, output_file, sample_size=60):
 # --- 配置区域 ---
 if __name__ == "__main__":
     # 输入目录路径 (请修改这里)
-    INPUT_DIRECTORY = "D:/STUDY/2026-project1/project1/main_work/通用模型实验/Backup_datasets/小的模型"
+    INPUT_DIRECTORY = "./external/model_runs/Backup_datasets/small_models"
 
     # 输出文件路径 (请修改这里)
     OUTPUT_FILE = "sampled_dataset_小.jsonl"

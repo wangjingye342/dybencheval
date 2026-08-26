@@ -7,7 +7,7 @@ import glob
 import re
 
 # ================= 配置区域 =================
-DATA_DIR = r'D:/STUDY/2026-project1/project1/main_work/计算指标/0_final/final数据（指标2，3）/final'
+DATA_DIR = r'./external/metrics/0_final/final数据（指标2，3）/final'
 OUTPUT_DIR = 'analysis_result_all'
 PLOT_DIR = os.path.join(OUTPUT_DIR, 'plots')
 

@@ -4,10 +4,10 @@ from pathlib import Path
 from typing import Any
 
 DATA_PATH = Path(
-    "D:/STUDY/2026-project1/project1/main_work/output_problems/generated_data_Humanity_Code_Generation.jsonl"
+    "./external/generated_outputs/generated_data_Humanity_Code_Generation.jsonl"
 )
 REVIEW_PATH = Path(
-    "D:/STUDY/2026-project1/project1/main_work/review_results.jsonl"
+    "./external/review_results.jsonl"
 )
 
 MAX_STR_LEN = 800   # 防止单字段刷屏

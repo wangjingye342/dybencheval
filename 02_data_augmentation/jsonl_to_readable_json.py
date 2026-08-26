@@ -28,4 +28,4 @@ def jsonl_to_pretty_json(input_file, output_file):
 # 使用示例
 if __name__ == "__main__":
     # 假设你的文件名为 data.jsonl
-    jsonl_to_pretty_json('D:/STUDY/2026-project1/project1/main_work/测评_人工检验/正确性120.jsonl', 'D:/STUDY/2026-project1/project1/main_work/测评_人工检验/正确性120_readable.json')
+    jsonl_to_pretty_json('./external/human_evaluation/correctness_120.jsonl', './external/human_evaluation/correctness_120_readable.json')

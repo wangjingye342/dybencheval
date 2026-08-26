@@ -21,9 +21,9 @@ EMBEDDING_MODEL = "qwen3-embedding-8b"
 MAX_TOKENS = 32000
 
 # 将这里替换为你存放原始 jsonl 数据的目录路径
-INPUT_DIRECTORY = Path("D:/STUDY/2026-project1/project1/rebuttal/增补embedding/数据")
+INPUT_DIRECTORY = Path("./external/augmentation_data/input")
 # 输出目录（可选：如果你想保存在不同文件夹，可以修改这里。目前默认保存在同级目录）
-OUTPUT_DIRECTORY = Path("D:/STUDY/2026-project1/project1/rebuttal/增补embedding")
+OUTPUT_DIRECTORY = Path("./external/augmentation_data")
 
 # ======================
 # 2. Tokenizer

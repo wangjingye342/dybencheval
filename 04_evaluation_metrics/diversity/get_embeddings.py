@@ -28,9 +28,9 @@ MAX_TOKENS = 32000
 CONCURRENCY_LEVEL = 50
 
 # 将这里替换为你存放原始 jsonl 数据的目录路径
-INPUT_DIRECTORY = Path("D:/STUDY/2026-project1/project1/main_work/计算指标/1/相似度")
+INPUT_DIRECTORY = Path("./external/metrics/1/similarity")
 # 输出目录
-OUTPUT_DIRECTORY = Path("D:/STUDY/2026-project1/project1/main_work/计算指标/1/re_embedding")
+OUTPUT_DIRECTORY = Path("./external/metrics/1/re_embedding")
 
 # 全局中止信号（当API报错时触发）
 ABORT_EVENT = Event()

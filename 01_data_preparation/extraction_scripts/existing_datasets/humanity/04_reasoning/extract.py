@@ -3,7 +3,7 @@ import random
 import os
 
 # 定义输入文件路径
-input_path = "D:/STUDY/2026-project1/project1/main_work/scripts/后补实验/评估指标/计算size/所有数据集/不需要制造的数据集/Humanity/4_推理能力/train-3.json"
+input_path = "./external/ablation/evaluation_metrics/size_calculation/所有数据集/existing_datasets/Humanity/4_推理能力/train-3.json"
 
 # 定义输出文件路径 (保存在当前目录下，文件名为 sampled_data.jsonl)
 output_path = "sampled_data_20.jsonl"

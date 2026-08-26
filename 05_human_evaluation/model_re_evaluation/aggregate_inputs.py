@@ -4,8 +4,8 @@ from pathlib import Path
 # ======================
 # 1. 路径配置
 # ======================
-INPUT_DIR = Path("D:/STUDY/2026-project1/project1/main_work/output_problems")
-OUTPUT_FILE = Path("D:/STUDY/2026-project1/project1/main_work/模型再评价/inputs.jsonl")
+INPUT_DIR = Path("./external/generated_outputs")
+OUTPUT_FILE = Path("./external/model_re_evaluation/inputs.jsonl")
 
 # ======================
 # 2. 主处理逻辑

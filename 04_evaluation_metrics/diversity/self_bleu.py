@@ -175,7 +175,7 @@ def batch_process_directory(input_dir, output_file):
 
 if __name__ == "__main__":
     # 1. 设置输入目录
-    input_directory = "D:/STUDY/2026-project1/project1/main_work/计算指标/1/相似度/"
+    input_directory = "./external/metrics/1/similarity/"
 
     # 2. 设置输出文件路径
     # 注意：改为 .jsonl 后缀，表示这是一个 JSON Lines 文件（每一行是一个独立的 JSON）

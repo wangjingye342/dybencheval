@@ -4,7 +4,7 @@ import os
 # ================= 配置区域 =================
 
 # 输入目录 (上一轮生成的结果)
-INPUT_DIR = "D:/STUDY/2026-project1/project1/main_work/scripts/后补实验/all_results"
+INPUT_DIR = "./external/ablation/all_results"
 # 输出目录 (存放用于评测 Coherence 的 prompt)
 OUTPUT_DIR = "./prompts_coherence"
 

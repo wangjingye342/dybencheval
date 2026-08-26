@@ -16,9 +16,9 @@ BASE_URL = "https://api.26351.com/v1"
 
 MODEL_NAME = "llama-3.1-70b"
 
-INPUT_FILE = "D:/STUDY/2026-project1/project1/main_work/通用模型实验/constructed_prompts_FINAL.jsonl"
+INPUT_FILE = "./external/model_runs/constructed_prompts_FINAL.jsonl"
 OUTPUT_FILE = Path(
-    f"D:/STUDY/2026-project1/project1/main_work/通用模型实验/all_results/ALL_api_results_llama-31-70b.jsonl"
+    f"./external/model_runs/all_results/ALL_api_results_llama-31-70b.jsonl"
 )
 
 # 新增：并发线程数 (根据 API 限制调整，通常 5-20 比较合适)

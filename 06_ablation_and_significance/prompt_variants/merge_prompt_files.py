@@ -5,7 +5,7 @@ import glob
 # ================= 配置区域 =================
 
 # 你的“后补实验”根目录路径
-ROOT_DIR = "D:/STUDY/2026-project1/project1/main_work/scripts/后补实验"
+ROOT_DIR = "./external/ablation"
 
 # 需要处理的子目录列表 (根据你图中的目录名)
 TARGET_SUBDIRS = [

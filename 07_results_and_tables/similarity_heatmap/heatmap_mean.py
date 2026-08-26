@@ -6,7 +6,7 @@ from pathlib import Path
 
 
 def cosine_similarity(vec_a, vec_b):
-    """计算两个向量的余弦相似度"""
+    """计算两个向量的余弦similarity"""
     norm_a = np.linalg.norm(vec_a)
     norm_b = np.linalg.norm(vec_b)
     if norm_a == 0 or norm_b == 0:
@@ -18,7 +18,7 @@ def main():
     # ======================
     # 1. 配置文件路径
     # ======================
-    base_dir = Path("D:/STUDY/2026-project1/project1/rebuttal/heatmap/分别embedding")
+    base_dir = Path("./external/embeddings")
     input_file = base_dir / "all_datasets_embedded_new.jsonl"
     output_csv = base_dir / "new_mean_similarity.csv"
 

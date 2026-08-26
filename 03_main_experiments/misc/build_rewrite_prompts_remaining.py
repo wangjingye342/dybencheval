@@ -4,10 +4,10 @@ import tqdm
 
 # =================配置区域=================
 # 输入根目录
-SOURCE_DIR = "D:/STUDY/2026-project1/project1/all_datasets/需要制造的数据集"
+SOURCE_DIR = "./data/raw_datasets/generated_datasets"
 
 # 输出文件路径 (你可以修改为你想要保存的位置)
-OUTPUT_FILE = "D:/STUDY/2026-project1/project1/main_work/通用模型实验/generated_prompts_需要.jsonl"
+OUTPUT_FILE = "./external/model_runs/generated_prompts_需要.jsonl"
 
 # Prompt 模板
 PROMPT_TEMPLATE = """# Role

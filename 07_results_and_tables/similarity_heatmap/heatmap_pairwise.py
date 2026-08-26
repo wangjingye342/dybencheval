@@ -20,7 +20,7 @@ def main():
     # ======================
     # 1. 配置文件路径
     # ======================
-    base_dir = Path("D:/STUDY/2026-project1/project1/rebuttal/heatmap/分别embedding")
+    base_dir = Path("./external/embeddings")
     input_file = base_dir / "all_datasets_embedded_new.jsonl"
     output_csv = base_dir / "new_pairwise_similarity.csv"
 
@@ -61,7 +61,7 @@ def main():
     results = []
     actual_cells = list(cell_embeddings.keys())
 
-    print("开始进行 Pairwise 相似度计算 (这可能需要一点时间)...")
+    print("开始进行 Pairwise similarity计算 (这可能需要一点时间)...")
 
     for target_domain_kw, target_task_kw in incomplete_targets:
         matched_domain = next((d for d, t in actual_cells if

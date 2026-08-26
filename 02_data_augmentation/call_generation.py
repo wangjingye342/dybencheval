@@ -16,8 +16,8 @@ BASE_URL = "https://api.whatai.cc/v1"
 MODEL_NAME = "gemini-3-pro-preview-thinking-*"
 
 # 文件路径配置
-INPUT_FILE = "D:/STUDY/2026-project1/project1/main_work/prompts/generated_prompts_SocialScience_Code_Generation.jsonl"
-OUTPUT_FILE = "D:/STUDY/2026-project1/project1/main_work/output_problems/generated_data_SocialScience_Code_Generation_40.jsonl"
+INPUT_FILE = "./external/prompts/generated_prompts_SocialScience_Code_Generation.jsonl"
+OUTPUT_FILE = "./external/generated_outputs/generated_data_SocialScience_Code_Generation_40.jsonl"
 
 # 初始化客户端
 client = OpenAI(

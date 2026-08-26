@@ -9,7 +9,7 @@ DATA_DIR = "./results"
 # 结果保存的文件名
 OUTPUT_FILE = "simcse_vendi_scores_gpu.json"
 # 使用的本地模型路径
-MODEL_PATH = "D:/STUDY/2026-project1/project1/rebuttal/unsup-simcse-bert-base-uncased"
+MODEL_PATH = "./external/models/unsup-simcse-bert-base-uncased"
 
 # 动态检测硬件以使用 GPU 加速
 # 优先使用 CUDA (NVIDIA GPU)，其次是 MPS (Mac Apple Silicon)，最后回退到 CPU

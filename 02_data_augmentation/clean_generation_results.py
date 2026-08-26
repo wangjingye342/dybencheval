@@ -4,11 +4,11 @@ from pathlib import Path
 name = "Humanity_Code_Generation"
 
 INPUT_PATH = Path(
-    "D:/STUDY/2026-project1/project1/main_work/output_problems/generated_data_" + name + ".jsonl"
+    "./external/generated_outputs/generated_data_" + name + ".jsonl"
 )
 
 OUTPUT_PATH = Path(
-    "D:/STUDY/2026-project1/project1/main_work/cleaned_datasets/cleaned_" + name + ".json"
+    "./external/cleaned_data/cleaned_" + name + ".json"
 )
 
 

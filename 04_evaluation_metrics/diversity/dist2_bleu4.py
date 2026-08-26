@@ -9,7 +9,7 @@ from tqdm import tqdm
 
 # ================= 配置区域 =================
 # 输入目录路径
-INPUT_DIR = "D:/STUDY/2026-project1/project1/main_work/计算指标/0_final/final数据（指标2，3）/final"
+INPUT_DIR = "./external/metrics/0_final/final数据（指标2，3）/final"
 # 输出目录路径
 OUTPUT_DIR = "./output"
 # 输出的 CSV 文件名

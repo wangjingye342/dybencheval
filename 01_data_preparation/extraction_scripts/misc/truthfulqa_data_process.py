@@ -1,7 +1,7 @@
 import pandas as pd
 import json
 
-data_dir = "D:/STUDY/2026-project1/project1/datasets/data_files/"
+data_dir = "./data/raw_sources/data_files/"
 category = "Science"
 
 # 1. 读取 CSV

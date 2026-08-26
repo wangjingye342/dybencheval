@@ -30,7 +30,7 @@ st.title("📂 模型生成题目校验工具 (自动保存版)")
 
 # --- 路径配置 ---
 # 输入文件路径
-INPUT_FILE_PATH = "D:/STUDY/2026-project1/project1/main_work/测评_人工检验/正确性120_final.jsonl"
+INPUT_FILE_PATH = "./external/human_evaluation/correctness_120_final.jsonl"
 # 输出保存路径 (结果将保存到这里)
 OUTPUT_FILE_PATH = "annotation_results.jsonl"
 

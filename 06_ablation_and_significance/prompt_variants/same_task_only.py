@@ -5,9 +5,9 @@ import glob
 
 # ================= 配置区域 =================
 
-DATA_ROOT = "D:/STUDY/2026-project1/project1/all_datasets"
+DATA_ROOT = "./data/raw_datasets"
 # 输出目录修改为用户指定路径
-OUTPUT_DIR = "D:/STUDY/2026-project1/project1/main_work/scripts/后补实验/prompts_onlytask"
+OUTPUT_DIR = "./external/ablation/prompts_onlytask"
 
 # 模型自主生成子情境的概率
 MODEL_DERIVED_SUB_SCENARIO = 0.4

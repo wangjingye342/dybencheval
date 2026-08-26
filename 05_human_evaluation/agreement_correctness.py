@@ -5,9 +5,9 @@ import os
 def calculate_accuracy():
     # 1. 定义文件路径
     # 预测结果文件 (包含 eval_result)
-    pred_file_path = '/main_work/计算指标/3/backup/response_processed/正确性120_seed_response_extracted_scored.jsonl_prompt_level3_response_scored.jsonl'
+    pred_file_path = './external/metrics/3/backup/response_processed/correctness_120_seed_response_extracted_scored.jsonl_prompt_level3_response_scored.jsonl'
     # 标注结果文件 (包含 label)
-    gold_file_path = 'D:/STUDY/2026-project1/project1/main_work/计算指标/3/annotation_results_pro.jsonl'
+    gold_file_path = './external/metrics/3/annotation_results_pro.jsonl'
 
     # 定义输出错误案例的文件路径 (可选，方便查看)
     error_output_path = 'error_cases.jsonl'

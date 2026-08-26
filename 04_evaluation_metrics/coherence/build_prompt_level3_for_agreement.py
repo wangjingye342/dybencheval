@@ -149,9 +149,9 @@ def process_prompts():
     # 输入文件路径
     input_name = "deepseek_seed_response_extracted.jsonl"
 
-    input_path = "D:/STUDY/2026-project1/project1/main_work/计算指标/1/相似度/" + input_name
+    input_path = "./external/metrics/1/similarity/" + input_name
 
-    same_output = "D:/STUDY/2026-project1/project1/main_work/计算指标/2/prompts/"
+    same_output = "./external/metrics/2/prompts/"
 
     # 确保输出目录存在
     output_dir = os.path.dirname(input_path)

@@ -144,7 +144,7 @@ Synthesize the results from your 3 self-defined dimensions.
 def process_prompts():
     # --- 配置区域 ---
     # 输入文件名
-    input_name = "正确性120_seed_response_extracted.jsonl"
+    input_name = "correctness_120_seed_response_extracted.jsonl"
 
     # 输入路径 (根据你的环境设置)
     input_path = "./" + input_name

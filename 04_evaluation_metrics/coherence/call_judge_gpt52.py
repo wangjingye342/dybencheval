@@ -15,8 +15,8 @@ BASE_URL = "https://api.whatai.cc/v1"
 MODEL_NAME = "gpt-5.2"
 
 # 路径配置
-INPUT_DIR = "D:/STUDY/2026-project1/project1/main_work/计算指标/2/0re/prompt_gpt52/"
-OUTPUT_DIR = "D:/STUDY/2026-project1/project1/main_work/计算指标/2/0re/response_gpt_re_ori"
+INPUT_DIR = "./external/metrics/2/0re/prompt_gpt52/"
+OUTPUT_DIR = "./external/metrics/2/0re/response_gpt_re_ori"
 
 # 并发配置
 MAX_WORKERS = 20

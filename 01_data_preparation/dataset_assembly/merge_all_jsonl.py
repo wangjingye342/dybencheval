@@ -59,7 +59,7 @@ def merge_jsonl_recursive(source_dir, output_filepath):
 
 if __name__ == "__main__":
     # --- 配置区域 ---
-    input_directory = r"D:/STUDY/2026-project1/project1/main_work/scripts/后补实验/评估指标/计算size/final数据集/DyBenchEval"
+    input_directory = r"./external/ablation/evaluation_metrics/size_calculation/final_dataset/DyBenchEval"
     output_filename = "merged_all_dybenchy.jsonl"
 
     # --- 执行 ---

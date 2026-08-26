@@ -36,7 +36,7 @@ def sample_json_data(input_path, output_path, sample_size=20):
 
 # --- 使用示例 ---
 # 请将文件名替换为你实际的文件路径
-input_file = 'D:/STUDY/2026-project1/project1/main_work/通用模型实验/api_results_qwen3-max_readable.json'  # 源文件
+input_file = './external/model_runs/api_results_qwen3-max_readable.json'  # 源文件
 output_file = 'sampled_20.json'  # 输出文件
 
 sample_json_data(input_file, output_file)

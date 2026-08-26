@@ -1,7 +1,7 @@
 # Curated file mapping
 
 The curated tree is a renamed copy of selected scripts from the original
-`project1` workspace. The directory names in this repository are English;
+workspace. The directory names in this repository are English;
 historical source paths are kept only as provenance in the original migration
 notes and are not required to run the code.
 
@@ -19,4 +19,3 @@ notes and are not required to run the code.
 
 The historical migration helper is retained as `migration.py` for auditability.
 It is not part of the normal experiment execution path.
-

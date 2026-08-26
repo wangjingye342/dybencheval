@@ -6,7 +6,7 @@ import html
 # --- 1. 基础配置 ---
 st.set_page_config(page_title="JSON 高级校验工具", layout="wide")
 
-INPUT_FILE = "正确性120.jsonl"
+INPUT_FILE = "correctness_120.jsonl"
 OUTPUT_FILE = "labeled_120.jsonl"
 
 

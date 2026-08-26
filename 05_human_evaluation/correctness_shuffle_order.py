@@ -37,6 +37,6 @@ def shuffle_jsonl_overwrite(file_path):
 
 if __name__ == "__main__":
     # 指定你的文件绝对路径
-    TARGET_FILE = "D:/STUDY/2026-project1/project1/main_work/测评_人工检验/正确性120.jsonl"
+    TARGET_FILE = "./external/human_evaluation/correctness_120.jsonl"
 
     shuffle_jsonl_overwrite(TARGET_FILE)

@@ -7,7 +7,7 @@ import glob
 import re
 
 # ================= 配置区域 =================
-DATA_DIR = r'D:/STUDY/2026-project1/project1/main_work/计算指标/0_final/final数据（指标2，3）/final'
+DATA_DIR = r'./external/metrics/0_final/final数据（指标2，3）/final'
 OUTPUT_DIR = 'analysis_result'
 PLOT_ROOT = os.path.join(OUTPUT_DIR, 'plots')
 
@@ -50,7 +50,7 @@ def get_english_name(raw_name, group_type):
 
 def analyze_and_plot(sub_df, group_type, group_name, file_name, current_plot_dir):
     """
-    核心处理函数：计算指标并画图
+    核心处理函数：metrics并画图
     :param sub_df: 数据子集
     :param group_type: 类型 (File_Total / Scenario / Task)
     :param group_name: 具体名称

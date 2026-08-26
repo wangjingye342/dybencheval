@@ -11,13 +11,13 @@ from threading import Lock
 
 # 包含已知 Embedding 的参考文件
 REFERENCE_FILE = Path(
-    r"D:/STUDY/2026-project1/project1\main_work\计算指标\1\re_embedding\claude_seed_response_extracted_embedded.jsonl")
+    r".\external\metrics\embeddings\claude_seed_response_extracted_embedded.jsonl")
 
-# 存放原始 jsonl 数据的根目录路径 (DyBenchEval_制造时)
-INPUT_DIRECTORY = Path(r"D:/STUDY/2026-project1/project1/FINAL_FILES/datasets/DyBenchEval_制造时")
+# 存放原始 jsonl 数据的根目录路径 (dybencheval_dataset_in_progress)
+INPUT_DIRECTORY = Path(r"./data/dybencheval_dataset/dybencheval_dataset_in_progress")
 
 # 输出文件路径（合并后的最终文件）
-OUTPUT_FILE = Path(r".\分别embedding\all_datasets_embedded_local.jsonl")
+OUTPUT_FILE = Path(r".\external\embeddings\all_datasets_embedded_local.jsonl")
 
 # 并发数设置 (本地查字典速度极快，并发主要用于加速文件 IO 构建)
 CONCURRENCY_LEVEL = 50

@@ -55,8 +55,8 @@ def extract_specific_files(src_dir: str, dst_dir: str, file_suffix: str):
 if __name__ == "__main__":
     # 请在这里修改你的实际路径
     # 建议使用绝对路径，或者确保相对路径是正确的
-    SOURCE_DIRECTORY = "D:/STUDY/2026-project1/project1/main_work/scripts/后补实验/评估指标/计算size/所有数据集"  # 输入目录
-    TARGET_DIRECTORY = "D:/STUDY/2026-project1/project1/main_work/scripts/后补实验/评估指标/计算size/final数据集/DyBenchEval"  # 输出目录
+    SOURCE_DIRECTORY = "./external/ablation/evaluation_metrics/size_calculation/所有数据集"  # 输入目录
+    TARGET_DIRECTORY = "./external/ablation/evaluation_metrics/size_calculation/final_dataset/DyBenchEval"  # 输出目录
 
     # 执行提取
     extract_specific_files(SOURCE_DIRECTORY, TARGET_DIRECTORY, "_test.jsonl")

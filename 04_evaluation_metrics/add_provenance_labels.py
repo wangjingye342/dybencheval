@@ -4,16 +4,16 @@ from collections import OrderedDict
 
 # ================= 配置区域 =================
 # 1. 第一部分源目录
-SOURCE_ROOT_DIR_1 = r"D:/STUDY/2026-project1/project1/all_datasets/不需要制造的数据集"
+SOURCE_ROOT_DIR_1 = r"./data/raw_datasets/existing_datasets"
 
 # 2. 第二部分源目录
-SOURCE_ROOT_DIR_2 = r"D:/STUDY/2026-project1/project1/all_datasets/需要制造的数据集"
+SOURCE_ROOT_DIR_2 = r"./data/raw_datasets/generated_datasets"
 
 # 3. 全集大文件路径
-INPUT_BIG_FILE = r"D:/STUDY/2026-project1/project1/main_work/计算指标/00/seed&response/qwen3-8b_seed_response_extracted.jsonl"
+INPUT_BIG_FILE = r"./external/metrics/00/seed&response/qwen3-8b_seed_response_extracted.jsonl"
 
 # 4. 输出结果文件路径
-OUTPUT_FILE = r"./溯源后/qwen3-8b_seed_response_full.jsonl"
+OUTPUT_FILE = r"./traced/qwen3-8b_seed_response_full.jsonl"
 
 
 # ===========================================

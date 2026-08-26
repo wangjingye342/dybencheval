@@ -13,8 +13,8 @@ BASE_URL = "https://api.whatai.cc/v1"
 MODEL_NAME = "gemini-3-pro-preview-thinking-*"  # 建议确认模型名称，gemini-3可能不存在，这里假设是thinking模型，如果你的平台支持gemini-3请改回
 
 # 路径配置
-INPUT_DIR = "D:/STUDY/2026-project1/project1/main_work/scripts/后补实验/all_prompts"
-OUTPUT_DIR = "D:/STUDY/2026-project1/project1/main_work/scripts/后补实验/all_results"
+INPUT_DIR = "./external/ablation/all_prompts"
+OUTPUT_DIR = "./external/ablation/all_results"
 
 # 并发配置
 MAX_WORKERS = 20  # 根据API限流情况调整，建议10-20

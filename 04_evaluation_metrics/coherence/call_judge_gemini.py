@@ -11,8 +11,8 @@ BASE_URL = "https://api.whatai.cc/v1"
 MODEL_NAME = "gemini-3-pro-preview-thinking-*"
 
 # 路径配置
-INPUT_DIR = "D:/STUDY/2026-project1/project1/main_work/计算指标/2/promptsonly3_gemini"
-OUTPUT_DIR = "D:/STUDY/2026-project1/project1/main_work/计算指标/2/response_gemini"
+INPUT_DIR = "./external/metrics/2/promptsonly3_gemini"
+OUTPUT_DIR = "./external/metrics/2/response_gemini"
 
 # 并发配置
 MAX_WORKERS = 20

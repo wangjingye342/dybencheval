@@ -84,5 +84,5 @@ def calculate_distinct_ngrams(file_path):
 
 
 if __name__ == "__main__":
-    target_file = "D:/STUDY/2026-project1/project1/main_work/计算指标/0_final/final数据（指标2，3）/final/claude_all.jsonl"
+    target_file = "./external/metrics/0_final/final数据（指标2，3）/final/claude_all.jsonl"
     calculate_distinct_ngrams(target_file)

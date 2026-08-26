@@ -4,10 +4,10 @@ import tqdm
 
 # =================配置区域=================
 # 输入根目录
-SOURCE_DIR = "D:/STUDY/2026-project1/project1/all_datasets/临时增补"
+SOURCE_DIR = "./data/raw_datasets/temporary_augmentation"
 
 # 输出文件路径 (你可以修改为你想要保存的位置)
-OUTPUT_FILE = "D:/STUDY/2026-project1/project1/main_work/通用模型实验/constructed_prompts_临时增补.jsonl"
+OUTPUT_FILE = "./external/model_runs/constructed_prompts_temporary_augmentation.jsonl"
 
 # Prompt 模板
 PROMPT_TEMPLATE = """# Role

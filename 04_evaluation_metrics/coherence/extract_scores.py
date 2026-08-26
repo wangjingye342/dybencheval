@@ -6,7 +6,7 @@ from collections import OrderedDict
 
 # ================= 配置区域 =================
 # 输入文件夹路径
-INPUT_DIR = "D:/STUDY/2026-project1/project1/main_work/计算指标/2/0re/response_gpt_re_ori"
+INPUT_DIR = "./external/metrics/2/0re/response_gpt_re_ori"
 
 # 输出文件夹路径
 OUTPUT_DIR = INPUT_DIR + "_processed"

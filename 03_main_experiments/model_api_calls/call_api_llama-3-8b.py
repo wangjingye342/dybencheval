@@ -15,7 +15,7 @@ BASE_URL = "https://api.26351.com"
 
 MODEL_NAME = "llama-3-8b"
 
-INPUT_FILE = "D:/STUDY/2026-project1/project1/main_work/通用模型实验/constructed_prompts_FINAL.jsonl"
+INPUT_FILE = "./external/model_runs/constructed_prompts_FINAL.jsonl"
 
 
 # ======================
@@ -29,7 +29,7 @@ def sanitize_model_name(name: str) -> str:
 model_tag = sanitize_model_name(MODEL_NAME)
 
 OUTPUT_FILE = Path(
-    f"D:/STUDY/2026-project1/project1/main_work/通用模型实验/all_results/api_results_{model_tag}.jsonl"
+    f"./external/model_runs/all_results/api_results_{model_tag}.jsonl"
 )
 
 # ======================

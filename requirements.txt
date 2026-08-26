@@ -1,4 +1,4 @@
-# DyBenchEval 整理版代码依赖
+# DyBenchEval curated-code dependencies
 # API / 模型调用
 openai>=1.0
 zhipuai

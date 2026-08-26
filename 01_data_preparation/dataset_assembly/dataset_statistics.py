@@ -5,7 +5,7 @@ import tiktoken  # 必须先 pip install tiktoken
 
 # =================配置区域=================
 # 1. 设置根目录路径
-ROOT_PATH = "D:/STUDY/2026-project1/project1/main_work/scripts/后补实验/评估指标/计算size/final数据集/DyBenchEval"
+ROOT_PATH = "./external/ablation/evaluation_metrics/size_calculation/final_dataset/DyBenchEval"
 
 # 2. 初始化 Tokenizer
 # 使用 cl100k_base (GPT-4/ChatGPT 标准)

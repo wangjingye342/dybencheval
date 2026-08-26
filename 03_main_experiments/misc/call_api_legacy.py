@@ -16,7 +16,7 @@ BASE_URL = "https://api.deepseek.com"
 
 MODEL_NAME = "deepseek-reasoner"
 
-INPUT_FILE = "D:/STUDY/2026-project1/project1/main_work/通用模型实验/apiask_sample_5.jsonl"
+INPUT_FILE = "./external/model_runs/apiask_sample_5.jsonl"
 
 # ======================
 # 2. 输出文件名构造
@@ -28,7 +28,7 @@ def sanitize_model_name(name: str) -> str:
 model_tag = sanitize_model_name(MODEL_NAME)
 
 OUTPUT_FILE = Path(
-    f"D:/STUDY/2026-project1/project1/main_work/通用模型实验/results/api_results_{model_tag}.jsonl"
+    f"./external/model_runs/results/api_results_{model_tag}.jsonl"
 )
 
 # ======================

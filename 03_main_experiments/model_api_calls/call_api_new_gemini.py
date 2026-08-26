@@ -16,9 +16,9 @@ BASE_URL = "https://api.whatai.cc/v1"
 
 MODEL_NAME = "gemini-3-pro-preview-thinking-*"
 
-INPUT_FILE = "D:/STUDY/2026-project1/project1/main_work/通用模型实验/constructed_prompts_FINAL.jsonl"
+INPUT_FILE = "./external/model_runs/constructed_prompts_FINAL.jsonl"
 OUTPUT_FILE = Path(
-    f"D:/STUDY/2026-project1/project1/main_work/通用模型实验/all_results/ALL_api_results_gemini3pro_new.jsonl"
+    f"./external/model_runs/all_results/ALL_api_results_gemini3pro_new.jsonl"
 )
 
 # 新增：并发线程数 (根据 API 限制调整，通常 5-20 比较合适)

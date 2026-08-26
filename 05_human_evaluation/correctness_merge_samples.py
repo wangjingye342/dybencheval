@@ -50,8 +50,8 @@ def merge_two_jsonl(file_path_1, file_path_2, output_path):
 # --- 使用示例 ---
 if __name__ == "__main__":
     # 替换为你的实际文件路径
-    FILE_A = "D:/STUDY/2026-project1/project1/main_work/测评_人工检验/sampled_dataset_大.jsonl"
-    FILE_B = "D:/STUDY/2026-project1/project1/main_work/测评_人工检验/sampled_dataset_小.jsonl"
-    RESULT_FILE = "D:/STUDY/2026-project1/project1/main_work/测评_人工检验/正确性120.jsonl"
+    FILE_A = "./external/human_evaluation/sampled_dataset_大.jsonl"
+    FILE_B = "./external/human_evaluation/sampled_dataset_小.jsonl"
+    RESULT_FILE = "./external/human_evaluation/correctness_120.jsonl"
 
     merge_two_jsonl(FILE_A, FILE_B, RESULT_FILE)

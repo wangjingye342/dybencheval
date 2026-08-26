@@ -39,7 +39,7 @@ def sample_from_jsonl(input_file, output_file, sample_size=20):
 
 
 # --- 使用配置 ---
-source_path = 'D:/STUDY/2026-project1/project1/main_work/通用模型实验/constructed_prompts.jsonl'  # 这里修改你的源文件名
+source_path = './external/model_runs/constructed_prompts.jsonl'  # 这里修改你的源文件名
 target_path = 'apiask_sample_5.jsonl'  # 输出文件名
 
 # 执行函数

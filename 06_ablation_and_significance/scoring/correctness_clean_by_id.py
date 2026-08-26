@@ -70,10 +70,10 @@ def filter_jsonl_by_id(input_dir, output_dir, ids_to_remove):
 # --- 配置区域 ---
 
 # 1. 输入包含 jsonl 文件的文件夹路径
-source_directory = "D:/STUDY/2026-project1/project1/main_work/scripts/后补实验/评估指标/3/results_correctness_processed"
+source_directory = "./external/ablation/evaluation_metrics/3/results_correctness_processed"
 
 # 2. 输出结果的文件夹路径 (会自动创建)
-target_directory = "D:/STUDY/2026-project1/project1/main_work/scripts/后补实验/评估指标/3/results_correctness_processed_clean"
+target_directory = "./external/ablation/evaluation_metrics/3/results_correctness_processed_clean"
 
 # 3. 你想要删除的 ID 列表 (数组)
 # 这里填写你的实际 ID 数据，可以是字符串或数字，取决于你的 JSON 结构

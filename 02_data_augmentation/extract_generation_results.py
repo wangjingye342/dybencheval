@@ -5,10 +5,10 @@ from pathlib import Path
 # 路径配置
 # =========================
 input_path = Path(
-    "D:/STUDY/2026-project1/project1/main_work/output_problems/generated_data_Humanity_Code_Generation.jsonl"
+    "./external/generated_outputs/generated_data_Humanity_Code_Generation.jsonl"
 )
 output_path = Path(
-    "D:/STUDY/2026-project1/project1/main_work/generated_response_only/Humanity_Code_Generation.jsonl"
+    "./external/generated_responses/Humanity_Code_Generation.jsonl"
 )
 
 # =========================

@@ -4,7 +4,7 @@ import glob
 
 # ================= 配置区域 =================
 # 输入目录 (你提供的processed目录)
-INPUT_DIR = "D:/STUDY/2026-project1/project1/main_work/scripts/后补实验/评估指标/3/results_correctness_processed_clean"
+INPUT_DIR = "./external/ablation/evaluation_metrics/3/results_correctness_processed_clean"
 # 统计结果保存路径 (可选)
 OUTPUT_SUMMARY_FILE = os.path.join(INPUT_DIR, "coherence_score_summary.json")
 

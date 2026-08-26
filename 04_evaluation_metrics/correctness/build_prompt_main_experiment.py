@@ -74,7 +74,7 @@ Synthesize the results from your 3 self-defined dimensions.
 def process_all_datasets():
     # --- 配置区域 ---
     # 输入目录：设置为 '.' 表示当前目录，或者是具体的文件夹路径，例如 './raw_data'
-    input_directory = "D:/STUDY/2026-project1/project1/main_work/计算指标/1/gemini"
+    input_directory = "./external/metrics/1/gemini"
 
     # 输出目录 (Prompts 存放位置)
     output_base_dir = "prompts-gemini"

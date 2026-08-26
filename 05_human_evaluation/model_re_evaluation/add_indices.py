@@ -30,7 +30,7 @@ def add_index_to_jsonl(
 
 
 if __name__ == "__main__":
-    input_path = "D:/STUDY/2026-project1/project1/main_work/模型再评价/responses.jsonl"
+    input_path = "./external/model_re_evaluation/responses.jsonl"
     output_path = "output_with_index.jsonl"
 
     add_index_to_jsonl(input_path, output_path)

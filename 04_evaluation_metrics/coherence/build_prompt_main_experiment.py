@@ -94,8 +94,8 @@ Output your response in the following XML format:
 
 def process_prompts():
     # 定义输入和输出目录 (保持你原有的路径不变)
-    input_dir = "D:/STUDY/2026-project1/project1/main_work/计算指标/1/相似度"
-    output_dir = "D:/STUDY/2026-project1/project1/main_work/计算指标/2/0re/promptsonly3_re/"
+    input_dir = "./external/metrics/1/similarity"
+    output_dir = "./external/metrics/2/0re/promptsonly3_re/"
 
     # 确保输出目录存在
     if not os.path.exists(output_dir):

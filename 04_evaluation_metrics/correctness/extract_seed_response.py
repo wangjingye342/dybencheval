@@ -4,8 +4,8 @@ import re
 # =========================
 # 1. 路径配置
 # =========================
-INPUT_PATH = "D:/STUDY/2026-project1/project1/main_work/测评_人工检验/评审正确性/正确性120_final.jsonl"
-OUTPUT_PATH = "正确性120_seed_response_extracted.jsonl"
+INPUT_PATH = "./external/human_evaluation/correctness_review/correctness_120_final.jsonl"
+OUTPUT_PATH = "correctness_120_seed_response_extracted.jsonl"
 
 # =========================
 # 2. Seed 提取正则

@@ -4,16 +4,16 @@ from collections import OrderedDict
 
 # ================= 配置区域 =================
 # 1. 第一部分源目录 (前 1140 行)
-SOURCE_ROOT_DIR_1 = r"D:/STUDY/2026-project1/project1/all_datasets/不需要制造的数据集"
+SOURCE_ROOT_DIR_1 = r"./data/raw_datasets/existing_datasets"
 
 # 2. 第二部分源目录 (1141 行及以后)
-SOURCE_ROOT_DIR_2 = r"D:/STUDY/2026-project1/project1/all_datasets/需要制造的数据集"
+SOURCE_ROOT_DIR_2 = r"./data/raw_datasets/generated_datasets"
 
 # 3. 全集大文件路径
-INPUT_BIG_FILE = r"D:/STUDY/2026-project1/project1/main_work/计算指标/00/seed&response/gemini3pro_seed_response_extracted.jsonl"
+INPUT_BIG_FILE = r"./external/metrics/00/seed&response/gemini3pro_seed_response_extracted.jsonl"
 
 # 4. 输出结果文件路径
-OUTPUT_FILE = r"./溯源后/gemini3pro_seed_response_full.jsonl"
+OUTPUT_FILE = r"./traced/gemini3pro_seed_response_full.jsonl"
 
 # 5. 分界线 (前多少行属于第一部分)
 LIMIT_ROWS = 1140
@@ -133,10 +133,10 @@ def process_dataset(input_path, output_path, map_part1, map_part2, limit):
 
             # ================= 分段逻辑 =================
             if idx < limit:
-                # 第一部分数据：查不需要制造的数据集
+                # 第一部分数据：查existing_datasets
                 source_info = map_part1.get(normalized_target)
             else:
-                # 第二部分数据：查需要制造的数据集
+                # 第二部分数据：查generated_datasets
                 source_info = map_part2.get(normalized_target)
             # ===========================================
 
@@ -174,10 +174,10 @@ def process_dataset(input_path, output_path, map_part1, map_part2, limit):
 
 
 if __name__ == "__main__":
-    # 1. 构建第一部分索引 (不需要制造的数据集)
+    # 1. 构建第一部分索引 (existing_datasets)
     index1 = build_source_index(SOURCE_ROOT_DIR_1, label="Part 1")
 
-    # 2. 构建第二部分索引 (需要制造的数据集)
+    # 2. 构建第二部分索引 (generated_datasets)
     index2 = build_source_index(SOURCE_ROOT_DIR_2, label="Part 2")
 
     # 3. 处理文件，传入两个索引

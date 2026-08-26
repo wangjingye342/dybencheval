@@ -118,9 +118,9 @@ def process_datasets(meta_mapping, input_dir, output_dir):
 
 def main():
     # 路径配置
-    meta_file_path = "D:/STUDY/2026-project1/project1/main_work/计算指标/00/溯源后/Final_standard.jsonl"
-    input_directory = "D:/STUDY/2026-project1/project1/main_work/计算指标/00/seed&response"
-    output_directory = "D:/STUDY/2026-project1/project1/main_work/计算指标/00/s&r+溯源"
+    meta_file_path = "./external/metrics/00/traced/Final_standard.jsonl"
+    input_directory = "./external/metrics/00/seed&response"
+    output_directory = "./external/metrics/00/seed_response_provenance"
 
     # 1. 加载元数据
     meta_data = load_metadata(meta_file_path)

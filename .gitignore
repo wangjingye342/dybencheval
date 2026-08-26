@@ -1,5 +1,6 @@
 # Datasets and generated artifacts (provided separately)
 data/
+external/
 *.jsonl
 *.json
 *.csv
@@ -18,4 +19,3 @@ __pycache__/
 .env.*
 *.key
 *.pem
-

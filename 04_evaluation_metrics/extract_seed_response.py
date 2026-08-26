@@ -4,7 +4,7 @@ import re
 # =========================
 # 1. 路径配置
 # =========================
-INPUT_PATH = "D:/STUDY/2026-project1/project1/main_work/通用模型实验/需要增补_results/api_results_qwen3-8b.jsonl"
+INPUT_PATH = "./external/model_runs/augmentation_results/api_results_qwen3-8b.jsonl"
 OUTPUT_PATH = "qwen3-8b_seed_response_extracted_40dao.jsonl"
 
 # =========================

@@ -2,8 +2,8 @@ import json
 import os
 
 # 定义输入和输出路径
-input_path = 'D:/STUDY/2026-project1/project1/main_work/模型再评价/人工评价结果/human_reviewed_0-129.jsonl'
-output_path = 'D:/STUDY/2026-project1/project1/main_work/模型再评价/人工评价结果/最终数据集/需重写part1.jsonl'
+input_path = './external/model_re_evaluation/human_review_results/human_reviewed_0-129.jsonl'
+output_path = './external/model_re_evaluation/human_review_results/最终数据集/rewrite_part1.jsonl'
 
 
 def process_file(in_file, out_file):

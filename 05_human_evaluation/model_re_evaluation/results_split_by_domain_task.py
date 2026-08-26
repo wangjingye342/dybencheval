@@ -96,7 +96,7 @@ def split_jsonl_by_fields(input_file, output_dir):
 # --- 使用示例 ---
 if __name__ == "__main__":
     # 配置路径
-    INPUT_FILE = 'D:/STUDY/2026-project1/project1/main_work/模型再评价/人工评价结果/最终数据集/merged_data.jsonl'  # 你的源文件路径
+    INPUT_FILE = './external/model_re_evaluation/human_review_results/最终数据集/merged_data.jsonl'  # 你的源文件路径
     OUTPUT_DIR = './split_results'  # 结果保存的文件夹
 
     split_jsonl_by_fields(INPUT_FILE, OUTPUT_DIR)

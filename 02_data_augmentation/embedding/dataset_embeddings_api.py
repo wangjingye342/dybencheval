@@ -27,10 +27,10 @@ MAX_TOKENS = 30000
 # 并发数设置
 CONCURRENCY_LEVEL = 50
 
-# 将这里替换为你存放原始 jsonl 数据的根目录路径 (即 DyBenchEval_制造时 的路径)
-INPUT_DIRECTORY = Path("D:/STUDY/2026-project1/project1/FINAL_FILES/datasets/DyBenchEval_制造时")
+# 将这里替换为你存放原始 jsonl 数据的根目录路径 (即 dybencheval_dataset_in_progress 的路径)
+INPUT_DIRECTORY = Path("./data/dybencheval_dataset/dybencheval_dataset_in_progress")
 # 输出文件路径（所有数据将合并保存到这一个文件中）
-OUTPUT_FILE = Path("./分别embedding/all_datasets_embedded_new.jsonl")
+OUTPUT_FILE = Path("./external/embeddings/all_datasets_embedded_new.jsonl")
 
 # 全局中止信号（当API报错时触发）
 ABORT_EVENT = Event()

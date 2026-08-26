@@ -58,7 +58,7 @@ def process_jsonl_files(source_dir, target_dir):
 
 if __name__ == "__main__":
     # 配置路径
-    source_directory = "D:/STUDY/2026-project1/project1/main_work/计算指标/1/qwen8b-40"
-    target_directory = "D:/STUDY/2026-project1/project1/main_work/计算指标/00/tmp_gemini"
+    source_directory = "./external/metrics/1/qwen8b-40"
+    target_directory = "./external/metrics/00/tmp_gemini"
 
     process_jsonl_files(source_directory, target_directory)

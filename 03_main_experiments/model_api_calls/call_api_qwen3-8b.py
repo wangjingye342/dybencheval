@@ -17,7 +17,7 @@ API_KEY = os.environ.get("DYBENCH_API_KEY", "")
 BASE_URL = "https://api.whatai.cc/v1"
 
 MODEL_NAME = "qwen3-8b"
-INPUT_FILE = "D:/STUDY/2026-project1/project1/main_work/通用模型实验/最终qwen3-8b40条/qwen3-8b-40条.jsonl"
+INPUT_FILE = "./external/model_runs/qwen3_8b_sample/qwen3-8b-40条.jsonl"
 
 # 并发数配置
 # 建议设置在 5-10 之间，过高可能会触发 API 的速率限制 (429 Too Many Requests)
@@ -34,7 +34,7 @@ def sanitize_model_name(name: str) -> str:
 
 model_tag = sanitize_model_name(MODEL_NAME)
 OUTPUT_FILE = Path(
-    f"D:/STUDY/2026-project1/project1/main_work/通用模型实验/需要增补_results/api_results_{model_tag}.jsonl"
+    f"./external/model_runs/augmentation_results/api_results_{model_tag}.jsonl"
 )
 
 # ======================

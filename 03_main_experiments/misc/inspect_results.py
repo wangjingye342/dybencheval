@@ -6,11 +6,11 @@ from pathlib import Path
 # ======================
 
 INPUT_FILE = Path(
-    "D:/STUDY/2026-project1/project1/main_work/通用模型实验/results/api_results_qwen3-30b-a3b-instruct-2507.jsonl"
+    "./external/model_runs/results/api_results_qwen3-30b-a3b-instruct-2507.jsonl"
 )
 
 OUTPUT_FILE = Path(
-    "D:/STUDY/2026-project1/project1/main_work/通用模型实验/api_results_qwen3-30b-a3b-instruct-2507_readable.json"
+    "./external/model_runs/api_results_qwen3-30b-a3b-instruct-2507_readable.json"
 )
 
 # ======================

@@ -90,8 +90,8 @@ def sample_diverse_data(source_root, output_dir, target_samples=3):
 
 if __name__ == "__main__":
     # === 配置路径 ===
-    SOURCE_ROOT = "D:/STUDY/2026-project1/project1/main_work/scripts/后补实验/评估指标/计算size/final数据集/DyBenchEval"
-    OUTPUT_DIR = "D:/STUDY/2026-project1/project1/main_work/scripts/后补实验/评估指标/计算size/final数据集/DyBenchEval_Sampled"
+    SOURCE_ROOT = "./external/ablation/evaluation_metrics/size_calculation/final_dataset/DyBenchEval"
+    OUTPUT_DIR = "./external/ablation/evaluation_metrics/size_calculation/final_dataset/DyBenchEval_Sampled"
 
     # 执行
     sample_diverse_data(SOURCE_ROOT, OUTPUT_DIR, target_samples=3)

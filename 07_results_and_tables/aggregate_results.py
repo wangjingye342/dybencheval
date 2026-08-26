@@ -5,9 +5,9 @@ import os
 def process_and_merge_jsonl():
     # 1. 定义文件路径
     name = "gemini3pro"
-    path_coherence = "D:/STUDY/2026-project1/project1/main_work/计算指标/2/response_level3_backup3_processed/" + name + "_seed_response_extracted_prompt_level3_response_scored.jsonl"
-    path_correctness = "D:/STUDY/2026-project1/project1/main_work/计算指标/3/response_processed_final/" + name + "_seed_response_extracted_prompt_level3_response_scored.jsonl"
-    path_main_source = "D:/STUDY/2026-project1/project1/main_work/计算指标/00/溯源后/" + name + "_seed_response_full.jsonl"
+    path_coherence = "./external/metrics/2/response_level3_backup3_processed/" + name + "_seed_response_extracted_prompt_level3_response_scored.jsonl"
+    path_correctness = "./external/metrics/3/response_processed_final/" + name + "_seed_response_extracted_prompt_level3_response_scored.jsonl"
+    path_main_source = "./external/metrics/00/traced/" + name + "_seed_response_full.jsonl"
 
     output_dir = "./final"
     output_filename = name + "_all.jsonl"

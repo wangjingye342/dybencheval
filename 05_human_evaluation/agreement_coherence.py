@@ -29,9 +29,9 @@ def load_data_to_dict(file_path):
 
 def calculate_accuracy():
     # --- 1. 文件路径配置 ---
-    file_path_a = "D:/STUDY/2026-project1/project1/main_work/计算指标/2/backup/level12_response_processed/sample1_prompt_level1_response_scored.jsonl"
-    file_path_b = "D:/STUDY/2026-project1/project1/main_work/计算指标/2/backup/level12_response_processed/sample2_prompt_level1_response_scored.jsonl"
-    file_path_label = "D:/STUDY/2026-project1/project1/main_work/计算指标/2/annotation_results_fixed_100.jsonl"
+    file_path_a = "./external/metrics/2/backup/level12_response_processed/sample1_prompt_level1_response_scored.jsonl"
+    file_path_b = "./external/metrics/2/backup/level12_response_processed/sample2_prompt_level1_response_scored.jsonl"
+    file_path_label = "./external/metrics/2/annotation_results_fixed_100.jsonl"
 
     # --- 2. 加载模型输出文件到内存 ---
     dict_a = load_data_to_dict(file_path_a)

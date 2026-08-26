@@ -1,7 +1,7 @@
 import json
 
-input_file = 'D:/STUDY/2026-project1/project1/main_work/测评_人工检验/正确性120.jsonl'
-output_file = 'D:/STUDY/2026-project1/project1/main_work/测评_人工检验/正确性120_final.jsonl'
+input_file = './external/human_evaluation/correctness_120.jsonl'
+output_file = './external/human_evaluation/correctness_120_final.jsonl'
 
 with open(input_file, 'r', encoding='utf-8') as f_in, \
         open(output_file, 'w', encoding='utf-8') as f_out:

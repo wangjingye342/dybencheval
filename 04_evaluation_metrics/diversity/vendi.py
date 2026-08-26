@@ -6,7 +6,7 @@ from vendi_score import text_utils
 # --- 配置区域 ---
 DATASET_DIR = "./results"  # 替换为你的目录路径
 OUTPUT_FILE = "./vendi_scores_2_results.json"
-MODEL_PATH = "D:/STUDY/2026-project1/project1/rebuttal/unsup-simcse-bert-base-uncased"
+MODEL_PATH = "./external/models/unsup-simcse-bert-base-uncased"
 BATCH_SIZE = 128
 
 

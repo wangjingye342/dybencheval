@@ -13,7 +13,7 @@ BASE_URL = "https://api.whatai.cc/v1"
 MODEL_NAME = "gemini-3-pro-preview-thinking-*"  # 保持与你提供的一致
 
 # 路径配置
-INPUT_DIR = "D:/STUDY/2026-project1/project1/main_work/scripts/后补实验/评估指标/3/prompts_correctness"
+INPUT_DIR = "./external/ablation/evaluation_metrics/3/prompts_correctness"
 OUTPUT_DIR = "./results_correctness"
 
 # 并发配置

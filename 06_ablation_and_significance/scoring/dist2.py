@@ -6,7 +6,7 @@ import re
 # ================= 配置区域 =================
 
 # 输入目录（存放含有 response 的数据集）
-INPUT_DIR = "D:/STUDY/2026-project1/project1/main_work/scripts/后补实验/评估指标/3/results_correctness_processed_clean"
+INPUT_DIR = "./external/ablation/evaluation_metrics/3/results_correctness_processed_clean"
 # 结果保存路径
 OUTPUT_FILE = "./distinct2_scores_100.json"
 

@@ -15,7 +15,7 @@ BASE_URL = "https://api.whatai.cc/v1"
 
 MODEL_NAME = "qwen3-30b-a3b-instruct-2507"
 
-INPUT_FILE = "D:/STUDY/2026-project1/project1/main_work/通用模型实验/generated_prompts_需要.jsonl"
+INPUT_FILE = "./external/model_runs/generated_prompts_需要.jsonl"
 
 
 # ======================
@@ -29,7 +29,7 @@ def sanitize_model_name(name: str) -> str:
 model_tag = sanitize_model_name(MODEL_NAME)
 
 OUTPUT_FILE = Path(
-    f"D:/STUDY/2026-project1/project1/main_work/通用模型实验/需要增补_results/api_results_{model_tag}_增补.jsonl"
+    f"./external/model_runs/augmentation_results/api_results_{model_tag}_增补.jsonl"
 )
 
 # ======================
