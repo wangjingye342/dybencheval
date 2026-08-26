@@ -43,9 +43,8 @@ That means the answer to “are all these scripts used?” is **no for the final
 
 ## Problems found
 
-1. All 194 Python files parse successfully, but many legacy scripts still contain hard-coded paths into the original `project1` tree. A scan found 144 path references matching the original machine layout. These scripts need path-by-path conversion to `config.py` before they are portable.
+1. All 194 Python files parse successfully, but many legacy scripts still contain hard-coded paths into the original `project1` tree. A scan found 144 path references across 90 files matching the original machine layout. These scripts need path-by-path conversion to `config.py` before they are portable.
 2. The previous README claimed that no absolute paths remained; that claim was incorrect and has been corrected.
 3. The old workspace has no single package entry point or automated pipeline runner. Reproducing the paper results requires running scripts manually with the expected intermediate files.
 4. Several historical scripts use filenames and working-directory assumptions rather than explicit command-line arguments. Run them from the directory expected by the script, or refactor them to accept paths.
 5. API scripts depend on external services and environment variables. No API key was found in the curated source, but network/model availability is not guaranteed.
-
