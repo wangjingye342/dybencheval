@@ -1,0 +1,19 @@
+# DyBenchEval 整理版代码依赖
+# API / 模型调用
+openai>=1.0
+zhipuai
+tiktoken
+# 指标计算
+numpy
+pandas
+scikit-learn
+nltk
+# 多样性 Vendi / SimCSE
+vendi-score
+transformers
+torch
+# 人工标注界面
+streamlit
+# 画表 / 导出
+openpyxl
+matplotlib

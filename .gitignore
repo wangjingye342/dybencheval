@@ -1,0 +1,21 @@
+# Datasets and generated artifacts (provided separately)
+data/
+*.jsonl
+*.json
+*.csv
+*.parquet
+*.pkl
+*.pt
+*.bin
+outputs/
+results/
+checkpoints/
+__pycache__/
+*.py[cod]
+
+# Local credentials and environment files
+.env
+.env.*
+*.key
+*.pem
+

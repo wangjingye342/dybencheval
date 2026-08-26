@@ -1,0 +1,385 @@
+import os
+import json
+import random
+import glob
+
+# ================= 配置区域 =================
+
+DATA_ROOT = "D:/STUDY/2026-project1/project1/all_datasets"
+# 输出目录修改为用户指定路径
+OUTPUT_DIR = "D:/STUDY/2026-project1/project1/main_work/scripts/后补实验/prompts_onlytask"
+
+# 模型自主生成子情境的概率
+MODEL_DERIVED_SUB_SCENARIO = 0.4
+# 生成数量
+num_prompts = 30
+
+# 定义图中显示的四个特定任务配置 (Scenario, Task)
+TARGET_CONFIGS = [
+    ("STEM", "Reasoning"),
+    ("Humanity", "Code_Generation"),
+    ("Other", "Professional_Knowledge"),
+    ("SocialScience", "Role_Play")
+]
+
+SCENARIO_MAP = {
+    "STEM": "STEM",
+    "Humanity": "Humanity",
+    "Social Science": "SocialScience",
+    "Other": "Other"
+}
+
+TASK_MAP = {
+    "1": "Basic_NLP",
+    "2": "Open_QA",
+    "3": "Writing",
+    "4": "Reasoning",
+    "5": "Role_Play",
+    "6": "Professional_Knowledge",
+    "7": "Code_Generation"
+}
+
+SCENARIO_DISPLAY = {v: k for k, v in SCENARIO_MAP.items()}
+TASK_DISPLAY = {v: v for k, v in TASK_MAP.items()}
+
+# ================= 强约束定义 =================
+
+SCENARIO_SPEC = {
+    "STEM": """This scenario focuses on science, engineering, mathematics, or technology. Content should be technical, objective, and formal.""",
+
+    "Humanity": """This scenario covers humanities such as philosophy, history, culture, and logic. The tone should be analytical or reflective rather than procedural or technical.""",
+
+    "SocialScience": """This scenario includes law, finance, economics, business, and governance. Content should reflect institutional, regulatory, contractual, organizational, or societal contexts. Casual conversation and purely technical STEM content are not allowed.""",
+
+    "Other": """This scenario includes news, education, and daily-life informational contexts. Content should remain realistic and socially grounded."""
+}
+
+# ================= 子情境定义 =================
+
+SCENARIO_SUBDOMAINS = {
+    "STEM": [
+        "Physics", "Chemistry", "Biology", "Mathematics", "Computer Science", "Engineering"
+    ],
+    "Humanity": [
+        "Philosophy", "History", "Cultural Studies", "Ethics", "Logic", "Literary Analysis"
+    ],
+    "SocialScience": [
+        "Law", "Finance", "Economics", "Business", "Governance"
+    ],
+    "Other": [
+        "News Reporting", "Education", "Public Information", "Daily-life Knowledge"
+    ]
+}
+
+# ================= 子情境来源模式 =================
+
+SUB_SCENARIO_MODE_PROBS = {
+    "SYSTEM_ASSIGNED": 1 - MODEL_DERIVED_SUB_SCENARIO,
+    "MODEL_DERIVED": MODEL_DERIVED_SUB_SCENARIO
+}
+
+
+def sample_sub_scenario_mode():
+    return random.choices(
+        list(SUB_SCENARIO_MODE_PROBS.keys()),
+        weights=list(SUB_SCENARIO_MODE_PROBS.values()),
+        k=1
+    )[0]
+
+
+# ================= 任务定义（增强版） =================
+
+TASK_SPEC = {
+    "Basic_NLP": """The task should test basic natural language processing abilities such as classification, paraphrasing, or simple extraction.""",
+
+    "Open_QA": """The task should require answering a factual or descriptive question. The answer must be concise and unambiguous.""",
+
+    "Writing": """The task should require coherent and context-aware text generation, such as explanations, summaries, or essays.""",
+
+    "Reasoning": """The task must require multi-step logical reasoning.
+
+The correct answer must NOT be obtainable via:
+- keyword matching
+- direct factual recall
+- simple numerical calculation
+
+The reasoning process should involve:
+- rule or principle application
+- conditional evaluation
+- conflict resolution or inference
+
+MANDATORY OUTPUT REQUIREMENT:
+The output MUST explicitly include a clearly labeled section named:
+**reasoning process**
+
+Failure to include an explicit reasoning process INVALIDATES the output.""",
+
+    "Role_Play": """The task should simulate a role-based interaction with clear objectives and consistent persona behavior.
+
+MANDATORY OUTPUT REQUIREMENT:
+The output MUST explicitly specify the acting **role** (e.g., identity, position, or persona) and maintain this role consistently throughout the interaction.
+
+Failure to clearly define and adhere to a role INVALIDATES the output.""",
+
+    "Professional_Knowledge": """The task should assess domain-specific professional knowledge and its correct application.""",
+
+    "Code_Generation": """The task should require generating correct and functional code that satisfies the given specification.
+
+MANDATORY OUTPUT REQUIREMENT:
+The output MUST explicitly include a section named:
+**test_cases**
+
+The test cases should be concrete, executable, and consistent with the generated code.
+
+Failure to include test cases INVALIDATES the output."""
+}
+
+# ================= Prompt 模板 =================
+
+PROMPT_TEMPLATE = """# Role Definition
+You are a professional dataset generation engine.
+Your responsibility is to generate NEW, ORIGINAL, and HIGH-QUALITY dataset samples
+that strictly satisfy the explicitly defined Task and Scenario requirements.
+
+You MUST prioritize the formal definitions below over any example content.
+
+---
+
+# 1. Explicit Generation Requirements (HIGHEST PRIORITY)
+
+## Target Scenario: {target_scenario_disp}
+
+{scenario_spec}
+
+### Sub-Scenario Selection Protocol (MANDATORY)
+
+Sub-scenario selection mode:
+**{sub_scenario_mode}**
+
+{selected_sub_scenario_block}
+
+## Target Task: {target_task_disp}
+
+{task_spec}
+
+---
+
+# 2. Output Contract (STRICT)
+
+Generate exactly ONE complete dataset sample.
+
+The sample must:
+- Be self-contained
+- Be answerable
+- Have a clearly identifiable correct output
+- Strictly match the target task and the sub-scenario
+
+DO NOT generate multiple questions.
+DO NOT include meta explanations.
+
+---
+
+# 3. Reference Examples (LOW PRIORITY)
+
+The following examples are provided only to help calibrate language style, complexity, and realism.
+
+You MUST NOT:
+- Copy entities, facts, or structures
+- Rephrase or adapt example content
+- Infer requirements from examples
+
+### Example 1
+[Scenario: {target_scenario_disp}] | [Task: {target_task_disp}]
+{shot1_content}
+
+### Example 2
+[Scenario: {shot2_scenario_disp}] | [Task: {target_task_disp}]
+{shot2_content}
+
+### Example 3
+[Scenario: {shot3_scenario_disp}] | [Task: {target_task_disp}]
+{shot3_content}
+
+### Example 4
+[Scenario: {target_scenario_disp}] | [Task: {shot4_task_disp}]
+{shot4_content}
+
+### Example 5
+[Scenario: {target_scenario_disp}] | [Task: {shot5_task_disp}]
+{shot5_content}
+
+---
+
+# Final Instruction
+
+Generate ONE new dataset sample that strictly satisfies:
+- the target task
+- the target scenario
+- the selected or derived sub-scenario
+
+Focus on reasoning depth, institutional realism, and correctness.
+"""
+
+# ================= 采样概率 =================
+
+SCENARIO_PROBS = {
+    "STEM": {"Humanity": 0.33, "SocialScience": 0.34, "Other": 0.33},
+    "Humanity": {"STEM": 0.31, "SocialScience": 0.35, "Other": 0.34},
+    "SocialScience": {"STEM": 0.33, "Humanity": 0.35, "Other": 0.32},
+    "Other": {"STEM": 0.33, "Humanity": 0.34, "SocialScience": 0.33}
+}
+
+# (注意：TASK_PROBS 在新逻辑中不再需要，因为我们强制锁定任务，但保留以防后续复用)
+TASK_PROBS = {
+    "Basic_NLP": {"Open_QA": 0.18, "Writing": 0.18, "Reasoning": 0.17, "Role_Play": 0.17,
+                  "Professional_Knowledge": 0.16, "Code_Generation": 0.14},
+    "Open_QA": {"Basic_NLP": 0.18, "Writing": 0.17, "Reasoning": 0.18, "Role_Play": 0.16,
+                "Professional_Knowledge": 0.17, "Code_Generation": 0.13},
+    "Writing": {"Basic_NLP": 0.19, "Open_QA": 0.18, "Reasoning": 0.17, "Role_Play": 0.17,
+                "Professional_Knowledge": 0.16, "Code_Generation": 0.13},
+    "Reasoning": {"Basic_NLP": 0.17, "Open_QA": 0.19, "Writing": 0.16, "Role_Play": 0.16,
+                  "Professional_Knowledge": 0.18, "Code_Generation": 0.14},
+    "Role_Play": {"Basic_NLP": 0.18, "Open_QA": 0.17, "Writing": 0.17, "Reasoning": 0.17,
+                  "Professional_Knowledge": 0.16, "Code_Generation": 0.15},
+    "Professional_Knowledge": {"Basic_NLP": 0.17, "Open_QA": 0.18, "Writing": 0.16, "Reasoning": 0.19,
+                               "Role_Play": 0.16, "Code_Generation": 0.14},
+    "Code_Generation": {"Basic_NLP": 0.17, "Open_QA": 0.16, "Writing": 0.16, "Reasoning": 0.17, "Role_Play": 0.17,
+                        "Professional_Knowledge": 0.17}
+}
+
+
+# ================= 核心逻辑 =================
+
+class DatasetLoader:
+    def __init__(self, root_path):
+        self.root_path = root_path
+        self.data_index = {}
+        self._build_index()
+
+    def _build_index(self):
+        for scenario_folder, scenario_key in SCENARIO_MAP.items():
+            s_path = os.path.join(self.root_path, scenario_folder)
+            if not os.path.exists(s_path):
+                continue
+            self.data_index[scenario_key] = {}
+            for task_folder in os.listdir(s_path):
+                task_path = os.path.join(s_path, task_folder)
+                if not os.path.isdir(task_path):
+                    continue
+                prefix = task_folder.split('_')[0]
+                if prefix in TASK_MAP:
+                    task_key = TASK_MAP[prefix]
+                    files = glob.glob(os.path.join(task_path, "*.jsonl"))
+                    if files:
+                        self.data_index[scenario_key][task_key] = files
+
+    def get_random_sample_raw(self, scenario_key, task_key):
+        files = self.data_index.get(scenario_key, {}).get(task_key, [])
+        if not files:
+            # 这里的Error处理略显简单，实际运行中如果缺少数据可能会报错，请确保数据源完整
+            return f"{{Error: No data found for {scenario_key}/{task_key}}}"
+        file = random.choice(files)
+        with open(file, "r", encoding="utf-8") as f:
+            lines = [l.strip() for l in f if l.strip()]
+        return random.choice(lines) if lines else "{Error: Empty file}"
+
+
+def weighted_sample(prob_dict):
+    return random.choices(list(prob_dict.keys()), weights=list(prob_dict.values()), k=1)[0]
+
+
+def sample_sub_scenario(target_scenario):
+    return random.choice(SCENARIO_SUBDOMAINS[target_scenario])
+
+
+def build_sub_scenario_block(mode, target_scenario):
+    if mode == "SYSTEM_ASSIGNED":
+        sub = sample_sub_scenario(target_scenario)
+        return f"SYSTEM-ASSIGNED SUB-SCENARIO: **{sub}**. You must treat this sub-scenario as the only valid thematic basis, align institutions, actors, terminology, and reasoning structure accordingly, and not drift into other sub-scenarios."
+    else:
+        return "MODEL-DERIVED SUB-SCENARIO: You must propose one concrete and specific sub-scenario that clearly belongs to the target scenario, explicitly state the chosen sub-scenario name at the beginning of the output, ensure the sub-scenario is not a generic category, and use this sub-scenario consistently throughout the sample. Failure to do so invalidates the output."
+
+
+def generate_prompt_content(loader, target_scenario, target_task):
+    sub_mode = sample_sub_scenario_mode()
+    sub_block = build_sub_scenario_block(sub_mode, target_scenario)
+
+    # === 修改核心：只采样相同任务 (target_task) 的样本 ===
+
+    # 样本1: Target Scenario + Target Task (基准样本)
+    s1 = loader.get_random_sample_raw(target_scenario, target_task)
+
+    # 样本2 & 3: Random Scenario + Target Task (展示同一任务在其他领域的应用)
+    logic_s2 = weighted_sample(SCENARIO_PROBS[target_scenario])
+    logic_s3 = weighted_sample(SCENARIO_PROBS[target_scenario])
+    s2 = loader.get_random_sample_raw(logic_s2, target_task)
+    s3 = loader.get_random_sample_raw(logic_s3, target_task)
+
+    # 样本4 & 5: Target Scenario + Target Task
+    # (原本逻辑是变任务，现在强约束为 Target Task。
+    # 由于模板中 Ex4, Ex5 硬编码了 Scenario 为 target_scenario_disp，
+    # 所以这里必须采样 target_scenario 下的样本，否则标签会对不上)
+    s4 = loader.get_random_sample_raw(target_scenario, target_task)
+    s5 = loader.get_random_sample_raw(target_scenario, target_task)
+
+    return PROMPT_TEMPLATE.format(
+        target_scenario_disp=SCENARIO_DISPLAY[target_scenario],
+        target_task_disp=TASK_DISPLAY[target_task],
+        scenario_spec=SCENARIO_SPEC[target_scenario],
+        task_spec=TASK_SPEC[target_task],
+        sub_scenario_mode=sub_mode,
+        selected_sub_scenario_block=sub_block,
+
+        shot1_content=s1,
+
+        shot2_scenario_disp=SCENARIO_DISPLAY[logic_s2],
+        shot2_content=s2,
+
+        shot3_scenario_disp=SCENARIO_DISPLAY[logic_s3],
+        shot3_content=s3,
+
+        # 注意：这里全部改为 Target Task 的 Display Name
+        shot4_task_disp=TASK_DISPLAY[target_task],
+        shot4_content=s4,
+
+        shot5_task_disp=TASK_DISPLAY[target_task],
+        shot5_content=s5
+    )
+
+
+def main():
+    loader = DatasetLoader(DATA_ROOT)
+
+    # 确保输出目录存在
+    if not os.path.exists(OUTPUT_DIR):
+        os.makedirs(OUTPUT_DIR)
+        print(f"Created directory: {OUTPUT_DIR}")
+
+    total_count = 0
+
+    # 遍历特定配置
+    for (s_key, t_key) in TARGET_CONFIGS:
+        # 转换任务名为内部Key (如果Target_Configs里写的是文件名上的简写，这里可能需要适配)
+        # 这里的 TARGET_CONFIGS 已经使用了 TASK_MAP 中的 Value (如 Reasoning, Code_Generation)
+        # 所以直接使用即可
+
+        output_file = os.path.join(OUTPUT_DIR, f"generated_prompts_{s_key}_{t_key}.jsonl")
+
+        with open(output_file, "w", encoding="utf-8") as f:
+            for _ in range(num_prompts):
+                prompt = generate_prompt_content(loader, s_key, t_key)
+                record = {
+                    "target_scenario": s_key,
+                    "target_task": t_key,
+                    "prompt": prompt
+                }
+                f.write(json.dumps(record, ensure_ascii=False) + "\n")
+                total_count += 1
+
+        print(f"Generated {num_prompts} prompts for [{s_key} - {t_key}] -> {output_file}")
+
+    print(f"Total generated: {total_count}")
+
+
+if __name__ == "__main__":
+    main()
