@@ -57,4 +57,3 @@ The local `data/` tree is ignored and must not be committed. To reproduce the ex
 ## Traceability
 
 `file_mapping.md` records the relationship between the curated scripts and their original source locations. `migration.py` is retained as a historical migration tool; it is not required for normal experiment execution.
-
